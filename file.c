@@ -22,5 +22,4 @@ void parse(int fd)
     printf("%d bits read\n", nread);
     read_bytes(nread, buff);
   }
-  read_bytes(nread, buff);
 }

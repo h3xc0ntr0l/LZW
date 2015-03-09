@@ -1,5 +1,4 @@
 #include "lzw.h"
-
 /*thanks for the table code exoo :D */
 
 void init_table(CODETABLE *tab){
@@ -17,3 +16,6 @@ void init_table(CODETABLE *tab){
   tab->bits = 8;
   tab->n = 256;
 }
+
+
+
