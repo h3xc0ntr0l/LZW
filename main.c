@@ -2,6 +2,7 @@
 
 int main(int argc, char *argv[])
 {
+  bufferiter = 0;
   if (argc != 2) {
     fprintf(stderr, "%s requires a filename as an argument\n", argv[0]);
     exit(0);
