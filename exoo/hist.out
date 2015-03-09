@@ -1,0 +1,129 @@
+     1	13:10	cd /u1/junk/cs471
+     2	13:10	ls
+     3	13:11	cd feb23
+     4	13:11	cd ..
+     5	13:11	ln -s feb23 mar02
+     6	13:11	cd mar02
+     7	13:11	ls
+     8	13:11	df
+     9	13:11	cd mo*
+    10	13:11	kls
+    11	13:11	ls
+    12	13:11	ls subdir
+    13	13:11	cd ..
+    14	13:11	ls
+    15	13:11	ls -a
+    16	13:12	cd mo*
+    17	13:12	ls -l
+    18	13:12	cd ..
+    19	13:12	ls
+    20	13:12	cp super.c readinodes.c
+    21	13:12	vi readinodes.c
+    22	13:16	cd mo*
+    23	13:16	ls
+    24	13:16	ls -l
+    25	13:17	dc
+    26	13:18	fg
+    27	13:22	man lseek
+    28	13:22	fg
+    29	13:26	jobs
+    30	13:27	fg
+    31	13:33	cc read*.c
+    32	13:33	ls
+    33	13:33	cd ..
+    34	13:33	cc read*.c
+    35	13:33	a.out
+    36	13:35	vi readinodes.c
+    37	13:39	cc read*.c
+    38	13:39	vi readinodes.c
+    39	13:39	cc read*.c
+    40	13:39	a.out
+    41	13:41	vi readinodes.c
+    42	13:42	cc read*.c
+    43	13:42	a.out 0
+    44	13:42	a.out 1
+    45	13:46	man lstat
+    46	13:46	a.out 1
+    47	13:48	cd mo*
+    48	13:48	ls -al
+    49	13:50	ls -al
+    50	13:50	date
+    51	13:51	ls -al
+    52	13:52	cd
+    53	13:53	rs
+    54	13:56	rs
+    55	14:00	cd
+    56	14:00	cd /u1/junk/cs202
+    57	14:00	ls
+    58	14:00	cd feb25
+    59	14:00	ls
+    60	14:00	vi lzw.c
+    61	14:03	make
+    62	14:03	vi lzw.c
+    63	14:04	make
+    64	14:04	ls
+    65	14:04	ls -lrt
+    66	14:04	lzw lzw.c
+    67	14:04	ls -lrt
+    68	14:04	vi lzw.c
+    69	14:12	make
+    70	14:12	rm pandp.txt.lzw
+    71	14:12	ls -lrt
+    72	14:13	lzw pandp.txt
+    73	14:13	ls
+    74	14:13	ls -lrt
+    75	14:13	rm *.lzw
+    76	14:13	vi bits.c
+    77	14:13	make
+    78	14:14	time lzw pandp.txt
+    79	14:14	ls -lrt
+    80	14:16	vi lzw.c
+    81	14:17	make
+    82	14:17	time lzw pandp.txt
+    83	14:18	vi bits.c
+    84	14:18	grep K *.c
+    85	14:18	vi lzw.h
+    86	14:18	make
+    87	14:18	time lzw pandp.txt
+    88	14:19	vi lzw.c
+    89	14:21	vi bits.c
+    90	14:22	vi lzw.c
+    91	14:27	make
+    92	14:27	vi lzw.c
+    93	14:27	make
+    94	14:27	vi lzw.c
+    95	14:28	make
+    96	14:28	lzw pandp.txt
+    97	14:29	ls -lrt
+    98	14:29	vi lzw.c
+    99	14:31	date
+   100	14:31	vi lzw.c
+   101	14:32	make
+   102	14:33	lzw pandp.txt
+   103	14:33	vi lzw.c
+   104	14:34	make
+   105	14:34	lzw pandp.txt
+   106	14:35	ls -l
+   107	14:35	vi lzw.c
+   108	14:36	vi Makefile
+   109	14:37	make
+   110	14:37	time lzw pandp.txt
+   111	14:37	ls -lrt
+   112	14:38	rm *.lzw
+   113	14:38	time lzw pandp.txt
+   114	14:38	ls -rt
+   115	14:38	ls -lrt
+   116	14:38	vi Makefile
+   117	14:39	make clean
+   118	14:39	make
+   119	14:39	rm *.lzw
+   120	14:39	man 2 access
+   121	14:39	ls -l
+   122	14:39	time lzw pandp.txt
+   123	14:40	ls -lrt
+   124	14:41	gprof
+   125	14:41	gprof lzw | more
+   126	14:43	man gprof
+   127	14:44	ls -lrt
+   128	14:44	cat Makefile
+   129	14:44	history > hist.out
