@@ -3,11 +3,11 @@
 
 
 void inner_bit(uchar bit[]);
-int to_decomal(char binary[]);
+int to_decimal(uchar binary[]);
 void byte(uchar buff[], int which, int block_size);
-void grab_byte_string(uchar byte, uchar return_value[]);
-void print_block(int block_size, uchar buff[]);
-void append_block(uchar buff[], uchar tmp[], int len);
+void grab_byte_string(uchar byte, uchar return_value[]); 
+void print_block(int block_size, uchar buff[]); /*prints block (for dbg purposes)*/
+void append_block(uchar buff[], uchar tmp[], int len); /*append block to another*/
 
 void read_bytes(int num_bytes, uchar buff[]){
   int i;
@@ -38,13 +38,14 @@ void read_bytes(int num_bytes, uchar buff[]){
   }
 }
 
-int to_decimal(char binary[]){
-  int len = strlen(binary);
+int to_decimal(uchar binary[]){
+  int len = 8;
   int i;
-  int decimal;
-  for (i=0; i < len; i++){
-  	if (binary[i] == '1')
-      decimal += pow(2, len-i);
+  int decimal = 0;
+  for (i=0; i <= len; i++){
+  	if (binary[i] == 1){
+      decimal += pow(2, len);
+  	}
   }
   return decimal;
 }
@@ -52,15 +53,23 @@ int to_decimal(char binary[]){
 void byte(uchar buff[], int which, int block_size){
 	uchar bit[13];
 	uchar tmp[13];
+	int num;
 	if (block_size == 8) { 
 	  grab_byte_string(buff[which], bit);
 	  print_block(block_size, bit);
-	} else if (block_size == 9) { 
-      grab_byte_string(buff[which+1], tmp);
-	  append_block(bit, tmp, 1);
-	  print_block(block_size, bit);
+	} else if (block_size == 9) {
+	  grab_byte_string(buff[which], bit); 
+      grab_byte_string(buff[(which+1)], tmp);
+	  append_block(bit, tmp, block_size-8);
+      num = to_decimal(bit);
+      if (num >= 256) {
+        /*found a code*/
+      } else { 
+        /*did not find a code*/
+      }
+	  print_block(8, bit);
 	} else { 
-
+      
 	}
 }
 
@@ -81,7 +90,7 @@ void print_block(int block_size, uchar buff[])
 
 void append_block(uchar buff[], uchar tmp[], int len){
 	/*fundamental logic is that the assumed blocksize is 8*/
-	if (13 - len < 8) {
+	if ((13 - len) < 8) {
 		fprintf(stderr, "Error: Block too large\n");
 		abort();
 	}
@@ -89,10 +98,11 @@ void append_block(uchar buff[], uchar tmp[], int len){
 	memcpy(ptr, buff, sizeof(uchar *));
 	int i;
 	for(i=0; i<len;i++){
-		buff[i] = tmp[8+i];
+		buff[i] = tmp[7-i];
 	}
 	int j = 0;
 	for(i;i<13;i++){
 		buff[i] = ptr[j++];
 	}
+	buff[8] = '\0';
 }
