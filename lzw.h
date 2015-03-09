@@ -5,8 +5,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <math.h>
 
-
+/*bit macros*/
+#define XBIT(bit, x) (bit & (1 << x) ? 1 : 0)
+#define greaterof(a,b) ((a) > (b) ? (a) : (b))
 
 
 #define MAXCODES  4096
@@ -31,6 +34,8 @@ typedef struct codetable {
   int n;
   int bits;
 } CODETABLE;
+
+CODETABLE tab;
 
 /*functions for parsing the binary file - located in file.c */
 int check_and_open(char path[]); /*send path as arg, check (stat) and open file*/
